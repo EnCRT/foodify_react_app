@@ -1,38 +1,47 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+}
+
 .App {
-  text-align: center;
+  width: 100%;
+  color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.hero-body {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-content: center;
+  gap: 26px;
+  align-items: center;
+  justify-items: center;
+  background-color: rgb(240, 255, 254);
+  min-height: 62vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loading-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.container .main-container {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.saved-meals {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+  max-width: 320px;
+}
+
+.card-title {
+  font-size: 10px;
 }
