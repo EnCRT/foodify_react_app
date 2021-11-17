@@ -23,9 +23,11 @@ function App() {
   );
 
   const MealsSaver = (meal) => {
-    savedMeals.push(meal);
-    saveMeal(savedMeals);
-    localStorage.setItem('savedMeals', JSON.stringify(savedMeals));
+    if (!savedMeals.some( elem => elem.idMeal === meal.idMeal)) {
+      savedMeals.push(meal);
+      saveMeal(savedMeals);
+      localStorage.setItem('savedMeals', JSON.stringify(savedMeals));
+    }
   };
 
   const MealsRemover = (id) => {
