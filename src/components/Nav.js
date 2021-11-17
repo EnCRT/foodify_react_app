@@ -2,7 +2,7 @@ export function Nav ({ setPage, setAddFormVisibility }) {
 
   return (
     <nav className="navigation" role="navigation" aria-label="main navigation">
-      <a className="navbar-item" href="/">
+      <a className="navbar-item" href="/foodify_react_app">
         <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
       </a>
       <a
