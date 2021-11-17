@@ -60,7 +60,7 @@ function App() {
                 Foodify Application
               </p>
               <p className="subtitle">
-                You need to create an application which will allow the user to get a random recipe and give him / her an ability to save it in the favorite dishes list. API <a
+              React app for generating random recipes for delicious dinner or breakfast ideas. Click the "Save" button so that you don't forget to prepare the dish later. Also, don't miss the opportunity to save your custom recipe to a book! Let's start? <br /> API <a
                   target="_blank"
                   rel="noreferrer"
                   href="https://www.themealdb.com/api.php"
