@@ -4,7 +4,7 @@ export function NavMobile ({ setPage, setAddFormVisibility }) {
 
     <div className="nav-mobile">
       <div className="nav-mobile-actions">
-        <a className="navbar-item" href="/">
+        <a className="navbar-item" href="/foodify_react_app">
           <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
         </a>
         <a role="button" class="navbar-burger navbar-burger-mobile" aria-label="menu" aria-expanded="false"
