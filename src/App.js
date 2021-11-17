@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Nav } from './components/Nav'
+import { Nav } from './components/Nav';
+import { NavMobile } from './components/NavMobile';
+import { AddNew } from './components/AddNew'
 import { Random } from './components/Random';
 import { SavedMealsPage } from './components/SavedMealsPage'
 import { Loading } from './components/Loading';
@@ -11,23 +13,28 @@ import { getMeal } from './components/API/getMeal';
 import './App.css';
 
 function App() {
+
   const [meal, setMeal] = useState(0);
   const [isLoading, setLoading] = useState(true);
   const [activePage, setPage] = useState('random');
-  const [savedMeals, saveMeal] = useState([]);
+  const [addFormVisibility, setAddFormVisibility] = useState(false);
+  const [savedMeals, saveMeal] = useState(
+    JSON.parse(localStorage.getItem('savedMeals')) || []
+  );
 
   const MealsSaver = (meal) => {
-    console.log(savedMeals);
-    savedMeals.push(meal)
+    savedMeals.push(meal);
     saveMeal(savedMeals);
-    console.log(savedMeals);
+    localStorage.setItem('savedMeals', JSON.stringify(savedMeals));
   };
 
   const MealsRemover = (id) => {
-    const newMeals = savedMeals.filter(meal => {
-      return meal.id === id;
-    });
+      const newMeals = savedMeals.filter(meal => {
+        console.log(meal.idMeal, id);
+        return meal.idMeal !== id;
+      });
     saveMeal(newMeals);
+    localStorage.setItem('savedMeals', JSON.stringify(newMeals));
   };
 
   useEffect(() => {
@@ -38,22 +45,40 @@ function App() {
       setMeal(mealFromApi);
       setLoading(false);
     })();
-  }, [activePage]);
+  }, []);
 
   return (
     <div className="container is-fullhd">
       <div className="App">
-        <Nav setPage={setPage} />
+        <NavMobile setPage={setPage} setAddFormVisibility={setAddFormVisibility} />
+        <Nav setPage={setPage} setAddFormVisibility={setAddFormVisibility} />
         <div className="container main-container is-fluid">
           <div className="notification is-primary">
               <p className="title">
                 Foodify Application
               </p>
               <p className="subtitle">
-                You need to create an application which will allow the user to get a random recipe and give him / her an ability to save it in the favorite dishes list. API <a href="https://www.themealdb.com/api.php">endpoint</a>. Task <a href="https://docs.google.com/document/d/15XyAsgQTlaFUdy6YOQg1nvLcB2MGfHND47S1_Y_nTT8/edit#">guideline</a>.
+                You need to create an application which will allow the user to get a random recipe and give him / her an ability to save it in the favorite dishes list. API <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://www.themealdb.com/api.php"
+                >
+                  endpoint 
+                </a>. Task <a
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://docs.google.com/document/d/15XyAsgQTlaFUdy6YOQg1nvLcB2MGfHND47S1_Y_nTT8/edit#"
+                >
+                  guideline.
+                </a>
               </p>
           </div>
         </div>
+        <AddNew
+          addFormVisibility={addFormVisibility}
+          setAddFormVisibility={setAddFormVisibility}
+          MealsSaver={MealsSaver}
+        />
         
         {
           activePage === 'random' 

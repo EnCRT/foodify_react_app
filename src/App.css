@@ -7,8 +7,13 @@ body {
 }
 
 .App {
+  position: relative;
   width: 100%;
   color: black;
+}
+
+.navigation {
+  display: flex;
 }
 
 .hero-body {
@@ -35,7 +40,7 @@ body {
 }
 
 .saved-meals {
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, 320px);
 }
 
 .card {
@@ -44,4 +49,36 @@ body {
 
 .card-title {
   font-size: 10px;
+}
+
+.nav-mobile {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+  transform: translateY(-100%);
+  transition: transform 0.4s;
+}
+
+.nav-mobile-actions {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.navbar-burger-mobile {
+  margin-right: 16px;
+}
+
+
+@media (max-width: 1023px) {
+
+  .navigation-link {
+    display: none;
+  }
 }

@@ -1,4 +1,4 @@
-export function Modal ({ meal, setModalVisibility, MealsRemover, MealsSaver }) {
+export function Modal ({ meal, setModalVisibility, MealsSaver }) {
   const {
     idMeal,
     strMeal,
@@ -70,20 +70,13 @@ export function Modal ({ meal, setModalVisibility, MealsRemover, MealsSaver }) {
               MealsSaver(meal)
             }}
           >
-            Save
+            OK
           </button>
           <button
             className="button"
             onClick={() => setModalVisibility(false)}
           >
             Close
-          </button>
-          <button
-            className="button is-danger"
-            onClick={() => setModalVisibility(false)}
-            onclick={() => MealsRemover(idMeal)}
-          >
-            Delete
           </button>
         </footer>
       </div>

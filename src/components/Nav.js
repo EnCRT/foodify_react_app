@@ -1,33 +1,40 @@
-export function Nav ({ setPage }) {
+export function Nav ({ setPage, setAddFormVisibility }) {
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
-      <div className="navbar-brand">
-        <a className="navbar-item" href="/">
-          <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-        </a>
+    <nav className="navigation" role="navigation" aria-label="main navigation">
+      <a className="navbar-item" href="/">
+        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+      </a>
+      <a
+        className="navbar-item navigation-link"
+        onClick={() => setPage('random')}
+      >
+        Random Meal
+      </a>
 
-        <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        </a>
-      </div>
+      <a
+        className="navbar-item navigation-link"
+        onClick={() => setPage('saved')}
+      >
+        Saved Meal
+      </a>
 
-      <div id="navbarBasicExample" className="navbar-menu">
-        <div className="navbar-start">
-          <a
-            className="navbar-item"
-            onClick={() => setPage('random')}
-          >
-            Random Meal
-          </a>
-
-          <a
-            className="navbar-item"
-            onClick={() => setPage('saved')}
-          >
-            Added Meal
-          </a>
-        </div>
-      </div>
+      <a
+        className="navbar-item navigation-link"
+        onClick={() => setAddFormVisibility(true)}
+      >
+        Add New Meal
+      </a>
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+        onClick={() => {
+          document.querySelector('.navbar-burger').classList.toggle("is-active");
+          document.querySelector('.nav-mobile').style.transform= 'translateY(0%)';
+        }}
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </nav>
   )
 }

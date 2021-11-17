@@ -18,7 +18,7 @@ export function FoodCard ({ meal, MealsSaver, MealsRemover, getMeal, setMeal, se
       <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
-            <img src={`${strMealThumb}/preview`} alt="Placeholder image" />
+            <img src={`${strMealThumb}`} alt="Placeholder image" />
           </figure>
         </div>
         <div className="card-content">
@@ -58,14 +58,13 @@ export function FoodCard ({ meal, MealsSaver, MealsRemover, getMeal, setMeal, se
                   className="button is-primary is-light"
                   onClick={() => {
                     MealsSaver(meal)
-                    console.log(meal);
                   }}
                 >
                   Save
                 </button>
               : <button
                   className="button is-danger"
-                  onclick={() => MealsRemover(idMeal)}
+                  onClick={() => MealsRemover(idMeal)}
                 >
                   Delete
                 </button>
